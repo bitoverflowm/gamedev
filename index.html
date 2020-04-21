@@ -24,23 +24,19 @@
     var i = 0;
 
 
-    function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height)
+    function drawBall() {
         ctx.beginPath();
         ctx.arc(x, y, 10, 0, Math.PI*2);
-        ctx.fillStyle = color[i];
+        ctx.fillStyle = "#0095DD";
         ctx.fill();
         ctx.closePath();
-        x += dx;
-        y += dy;
+    }
 
-        //change color of i
-        i == 0 ? i = 1 : i = 0;
-        
-        //collision
-        //x == canvas.width - 10 ? dx = -2 : dx += 1;
-        //y < 10 ? dy = 2 : dy -= 1;
-        //console.log(y)
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawBall();
+        x += dx;
+        y += dy;    
     }
 
     setInterval(draw, 10);
